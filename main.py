@@ -11,25 +11,25 @@ def writePosition(position, player):
         if int(game[0][position]) is 0:
             game[0][position] = player
         else:
-            print "Essa casa ja esta preenchida!"
+            print "This house is already filled!"
             getPlayerMark(player)
     if position > 2 and position < 6:
         if int(game[1][position - 3]) is 0:
             game[1][position - 3] = player
         else:
-            print "Essa casa ja esta preenchida!"
+            print "This house is already filled!"
             getPlayerMark(player)
     if position > 5 and position < 9:
         if int(game[2][position - 6]) is 0:
             game[2][position - 6] = player
         else:
-            print "Essa casa ja esta preenchida!"
+            print "This house is already filled!"
             getPlayerMark(player)
 
 #this function get the position mark of the player
 def getPlayerMark(player):
-    position = int(raw_input('Qual posicao escolhe? (0-8)'))
-    print "Voce escolheu a posicao %d." % position
+    position = int(raw_input('Which position do you choose? (0-8)'))
+    print "You chose position %d fools" % position
     writePosition(position, player)
     print game[0]
     print game[1]
@@ -41,7 +41,7 @@ def verifyWinner(player):
         if number == 0:
             index += 1
     if index == 0:
-        print 'Fim do jogo! Ninguem ganhou!'
+        print 'End of the game! Nobody won!'
         return True
     #check lines
     for line in [0,1,2]:
