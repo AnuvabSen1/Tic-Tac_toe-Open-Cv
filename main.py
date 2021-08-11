@@ -206,13 +206,13 @@ def inteligence(player):
 
 win = False
 while win is False:
-    #acertar verificacao, sair do loop imediatamente se houve ganhador
+    #hit check, exit loop immediately if there was a winner
     getPlayerMark(1)
     win = verifyWinner(1)
     if win:
         break
     inteligence(2)
-    print "O computador ja jogou!"
+    print "The computer already played!"
     win = verifyWinner(2)
     print game[0]
     print game[1]
