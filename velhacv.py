@@ -69,7 +69,7 @@ def getPlayer(points, frame):
     global choose_user, init, last_time, player
     hW,wW = frame.shape[0:2]
     cv2.line(frame,(0,hW-25),(wW,hW-25),(35,35,155),25)
-    cv2.putText(frame, "Jogador, escolha uma jogada.",(150, hW-20), FONTE, 0.7,(0,255,0),2,cv2.LINE_AA)
+    cv2.putText(frame, "Player, choose a move.",(150, hW-20), FONTE, 0.7,(0,255,0),2,cv2.LINE_AA)
     field_key = 0
     gameboard = np.array(tic.game[0]+tic.game[1]+tic.game[2])
     indexs = np.where(gameboard == 0)[0]
@@ -79,11 +79,11 @@ def getPlayer(points, frame):
         value = compareContourHSV(cnt)
         old_played = np.where(indexs== field_key)[0]
         if value != False and init == False and len(old_played) == 1:
-            print "Achou nova jogada! Aguarde 3 segundos."
+            print "Found new move! Wait 3 seconds."
             last_time = int(time.time())
             init = True
         if value != False and int(time.time()) - last_time > 3 and init == True and len(old_played) == 1:
-            print "Jogada player:", field_key
+            print "player play:", field_key
             tic.writePosition(field_key, value)
             init = False
             choose_user = False
@@ -128,10 +128,10 @@ while(game):
     if choose_user == True:
         result = getPlayer(fields, frame)
         if  result == True:
-            print "O jogador venceu!"
+            print "The player won!"
             break
         elif result == "EMPATE":
-            print "Houve empate!"
+            print "There was a tie!"
             break
 
 
@@ -142,10 +142,10 @@ while(game):
         print tic.game[1]
         print tic.game[2]
         if  result == True:
-            print "O computador venceu!"
+            print "The computer won!"
             break
         elif result == "EMPATE":
-            print "Houve empate!"
+            print "There was a tie!"
             break
         write_comp = True
         choose_user = True
