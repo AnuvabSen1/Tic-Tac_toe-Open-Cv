@@ -142,7 +142,7 @@ while(game):
         print tic.game[1]
         print tic.game[2]
         if  result == True:
-            print "The computer won!"
+            print "The computer won! "
             break
         elif result == "EMPATE":
             print "There was a tie!"
